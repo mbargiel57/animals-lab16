@@ -12,6 +12,7 @@ import java.text.NumberFormat;
 
 public class CustomTextField extends JFormattedTextField {
 	private static final int DEFAULT_WIDTH = 1;
+	private static final int DEFAULT_HEIGHT = 1;
 	private static final CustomNumberFormatter formatter = new CustomNumberFormatter();
 
 	private static class CustomNumberFormatter extends NumberFormatter {
@@ -32,18 +33,20 @@ public class CustomTextField extends JFormattedTextField {
 		  JPanel panel
 	) {
 		super(new DefaultFormatterFactory(formatter), Integer.valueOf(value));
-		initListener(fieldName);
 
+		// add label
+		JLabel label = new JLabel(fieldName + ":");
 		constraints.gridwidth = DEFAULT_WIDTH;
+		constraints.gridheight = DEFAULT_HEIGHT;
+		constraints.gridx = col;
 		constraints.gridy = row;
 		constraints.weightx = 0;
 		constraints.weighty = 0;
-
-		JLabel label = new JLabel(fieldName + ":");
-		constraints.gridx = col;
 		constraints.fill = GridBagConstraints.NONE;
 		panel.add(label, constraints);
 
+		// add text field
+		initListener(fieldName);
 		setFont(new Font("Dialog", Font.BOLD, 12));
 		setBackground(CustomColors.TEXT_BACKGROUND_COLOR);
 		Border margins = BorderFactory.createEmptyBorder(5, 5, 5, 0);

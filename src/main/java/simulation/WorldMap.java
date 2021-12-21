@@ -44,7 +44,6 @@ public class WorldMap extends AbstractWorldMap {
 
 	@Override
 	public void run() {
-//        System.out.println("Today is day number " + dayNumber);
 		animalsPositions.clear();
 		animals.forEach(animal -> {
 			animal.moveBasedOnGenome();

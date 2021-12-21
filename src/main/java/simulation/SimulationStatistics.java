@@ -10,15 +10,17 @@ public record SimulationStatistics (
 ) {
 	@Override
 	public String toString() {
-		return "Number of animals: " + noOfAnimals + "\n"
-				+ "Number of plants: " + noOfPlants + "\n"
-				+ "Mean age: " + formatNumber(meanLifeLength) + "\n"
-				+ "Mean no of children: " + formatNumber(meanNumberOfChildren) + "\n"
-				+ "Mean energy: " + formatNumber(meanEnergy) + "\n"
-				+ "Day number: " + dayNumber + "\n";
-	}
-
-	private String formatNumber(double number) {
-		return String.format("%.2f", number);
+		return String.format("Number of animals: %d%n"
+				+ "Number of plants: %d%n"
+				+ "Mean age: %.2f%n"
+				+ "Mean no of children: %.2f%n"
+				+ "Mean energy: %.2f%n"
+				+ "Day number: %d%n",
+			noOfAnimals,
+			noOfPlants,
+			meanLifeLength,
+			meanNumberOfChildren,
+			meanEnergy,
+			dayNumber);
 	}
 }

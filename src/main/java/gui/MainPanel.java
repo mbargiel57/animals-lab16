@@ -27,16 +27,10 @@ public class MainPanel extends JPanel implements ActionListener {
 		initLayout();
 
 		// Create buttons
-		CustomButton startBtn = createButton("Start new game");
-		CustomButton stopBtn = createButton("Stop game");
-		CustomButton continueBtn = createButton("Continue game");
-		CustomButton dumpToJsonBtn = createButton("Dump to JSON");
-
-		// Add actions to buttons
-		startBtn.addActionListener(e -> startApp());
-		stopBtn.addActionListener(e -> stopApp());
-		continueBtn.addActionListener(e -> continueApp());
-		dumpToJsonBtn.addActionListener(e -> dumpStatistics());
+		CustomButton startBtn = createButton("Start new game", e -> startApp());
+		CustomButton stopBtn = createButton("Stop game", e -> stopApp());
+		CustomButton continueBtn = createButton("Continue game", e -> continueApp());
+		CustomButton dumpToJsonBtn = createButton("Dump to JSON", e -> dumpStatistics());
 
 		// add text fields
 		SimulationParams.getParamsMap().forEach((fieldName, value) ->
@@ -72,9 +66,9 @@ public class MainPanel extends JPanel implements ActionListener {
 		);
 	}
 
-	private CustomButton createButton(String text) {
+	private CustomButton createButton(String text, ActionListener listener) {
 		return new CustomButton(text, this, constraints,
-			nextRow++, DEFAULT_COL, true);
+			nextRow++, DEFAULT_COL, true, listener);
 	}
 
 	private void addMapPanel() {

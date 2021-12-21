@@ -1,6 +1,9 @@
 package gui;
 
-public class LayoutConstants {
+public final class LayoutConstants {
+
+	private LayoutConstants() {}
+
 	public static int TOP_MARGIN = 5;
 	public static int LEFT_MARGIN = 10;
 	public static int RIGHT_MARGIN = 10;

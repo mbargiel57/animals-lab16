@@ -14,16 +14,16 @@ public class JsonParser {
 	private static final Gson gson = new Gson();
 
 	public static Map<String, Integer> readSimulationParams(String filename) {
-		Type type = new TypeToken<Map<String, Integer>>() {
-		}.getType();
+		Type type = new TypeToken<Map<String, Integer>>() {}.getType();
+		Map<String, Integer> paramsMapTemp = null;
 		try {
 			String jsonString = Files.readString(Path.of(filename));
-			return gson.fromJson(jsonString, type);
+			paramsMapTemp = gson.fromJson(jsonString, type);
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
-		return null;
+		return paramsMapTemp;
 	}
 
 	public static void dumpStatisticsToJsonFile(String filename, SimulationStatistics statistics) {

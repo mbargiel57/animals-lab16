@@ -2,7 +2,10 @@ package gui;
 
 import java.awt.*;
 
-public class CustomColors {
+public final class CustomColors {
+
+	private CustomColors() {}
+
 	public static Color BACKGROUND_COLOR = new Color(255, 255, 200);
 	public static Color TEXT_BACKGROUND_COLOR  = new Color(235, 255, 155);
 	public static Color MAP_BACKGROUND_COLOR   = new Color(172, 172, 0);

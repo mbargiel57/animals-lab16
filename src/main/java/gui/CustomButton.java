@@ -2,6 +2,7 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class CustomButton extends JButton {
 	private static final int BTN_WIDTH = 2;
@@ -13,7 +14,8 @@ public class CustomButton extends JButton {
 			GridBagConstraints constraints,
 			int row,
 			int col,
-			boolean enabled
+			boolean enabled,
+			ActionListener listener
 	) {
 		super(text);
 		constraints.gridy = row;
@@ -22,6 +24,7 @@ public class CustomButton extends JButton {
 		constraints.gridheight = BTN_HEIGHT;
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		setEnabled(enabled);
+		addActionListener(listener);
 		panel.add(this, constraints);
 	}
 }
